@@ -1,0 +1,11 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="harborcraft"
+version="1.0"
+displayName="Harborcraft"
+updateJSONURL=""
+description="""Harborcraft Mod for Minecraft 1.19.2"""
+authors="Philipp"

@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        maven { url 'https://files.minecraftforge.net/maven' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.+'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'net.minecraftforge.gradle.forge' version '5.1.11'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = '1.0'
+group = 'de.philipp.harborcraft'
+archivesBaseName = 'harborcraft'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+minecraft {
+    version = '1.19.2'
+    mappings = 'officialMojangMappings'
+    runDir = 'run'
+    mappingsChannel = 'official'
+    mappingsVersion = '1.19.2'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.minecraftforge.net' }
+}
+
+// Konfiguration für GameTest
+tasks.named('runGameTestServer', JavaExec) {
+    jvmArgs += [
+        '-Dforge.enableGameTest=true',
+        '-Dforge.gametest.namespace=harborcraft',
+        '-Dforge.gametest.exitOnSuccess=true'
+    ]
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mc_version', project.minecraft.version
+    
+    filesMatching('**/*.mcmeta') {
+        filter { it.contains('${version}') ? it.replace('${version}', project.version) : it }
+        filter { it.contains('${mc_version}') ? it.replace('${mc_version}', project.minecraft.version) : it }
+    }
+}
