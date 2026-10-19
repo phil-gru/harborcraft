@@ -1,8 +1,33 @@
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.eclipse/
+.bin/
+
+# Build
+/build/
+/run/
+
+# Gradle
+.gradle/
+
+# Logs
+*.log
+
+# Mac
+.DS_Store
+
+# Environment
+.env
+.venv/
+
+# libs
+libs/
+
 # Compiled class file
 *.class
-
-# Log file
-*.log
 
 # BlueJ files
 *.ctxt

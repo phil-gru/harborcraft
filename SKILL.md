@@ -9,3 +9,4 @@
 > 5. Alle Werte (Preise, Intervalle, Spawn-Chancen) in eine Config-Datei (`ForgeConfigSpec`) oder JSON, nie hardcoden.
 > 6. Wenn ein Feature visuell ist (Rendering/Modelle), trenne sauber zwischen Logik (serverseitig, testbar) und Darstellung (clientseitig) – Logik muss ohne Client in GameTests prüfbar sein.
 > 7. Antwort immer mit: (a) kurzem Plan, (b) Code, (c) wie ich es teste (GameTest oder `/give`/Befehl im `runClient`).
+> 8. Bei einem Git Push bei fertigen Änderungen, erstellst du einen Branch und stellst eine Merge-Request in den 'main' Branch
